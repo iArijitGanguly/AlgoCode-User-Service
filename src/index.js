@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 const { PORT } = require('./configs/server.config');
 const db = require('./configs/db.config');
 const logger = require('./configs/logger.config');
@@ -10,6 +11,8 @@ const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+app.use(cors());
 
 app.use('/api', apiRouter);
 

@@ -23,13 +23,9 @@ class UserRepository {
             }
 
             if(user.password === userData.password) {
-                console.log(user.password);
                 return user;
             }
-            else {
-                console.log(userData.password);
-                throw new BadRequest('password', { password: userData.password });
-            }
+            throw new BadRequest('password', { password: userData.password });
         } catch (error) {
             logger.error(error);
             throw error;
